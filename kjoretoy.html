@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="css/style.css">
     <script defer src="js/index.js"></script>
     <script defer src="js/userlog.js"></script>
+    <script defer src="js/vehicle.js"></script>
+
 </head>
 <body>
     <div class="top_bar">
@@ -169,40 +171,115 @@
         </div>
     </div>
     <div class="wrapper">
-        <div class="content_header_div">
-            <h1 class="content_header_text">Leiebilene vi tilbyr</h1>
-            <div class="vehicle_container">
-                <div class="vehicle" onclick="location.href='kjoretoy.html'+'?kjoretoy='+0;">
-                    <img class="vehicle_img" src="pictures/xpengp7.png" alt="" style="aspect-ratio: 620/277;">
-                    <h3 class="vehicle_title"><strong style="font-size: 1.7rem;">XPENG P7</strong> SEDAN</h3>
-                    <ul class="vehicle_specs">
-                        <li>
-                            <p>706km - NEDC Rekkevidde</p>
-                        </li>
-                        <li>
-                            <p>4.5s - 0-100km/t Akselerasjon</p>
-                        </li>
-                        <li>
-                            <p>XPILOT 3.0 - ADAS</p>
-                        </li>
-                    </ul>
-                </div>  
-                <div class="vehicle" onclick="location.href='kjoretoy.html'+'?kjoretoy='+1;" style="cursor:unset!important">
-                    <div class="soon"><h1 class="soon_text">KOMMER SNART</h1></div>
-                    <img class="vehicle_img" src="pictures/xc40.png" alt="" style="aspect-ratio: 2514/1124;">
-                    <h3 class="vehicle_title"><strong style="font-size: 1.7rem;">Volvo XC40 Recharge</strong> SUV</h3>
-                    <ul class="vehicle_specs">
-                        <li>
-                            <p>433km - WLTP Rekkevidde</p>
-                        </li>
-                        <li>
-                            <p>4.9s - 0-100km/t Akselerasjon</p>
-                        </li>
-                        <li>
-                            <p>28min - Hurtiglading 10-80%</p>
-                        </li>
-                    </ul>
+        <div class="vehicle_page_container">
+            <img class="vehicle_img" id="vehicleImg" src="" alt="" style="aspect-ratio: 620/277;">
+            <h3 class="vehicle_title" id="vehicleTitle"><strong></strong></h3>
+            <ul class="vehicle_specs">
+                <li>
+                    <p id="vehicleText1"></p>
+                </li>
+                <li>
+                    <p id="vehicleText2"></p>
+                </li>
+                <li>
+                    <p id="vehicleText3"></p>
+                </li>
+            </ul>
+            <div class="vehicle_rent">
+                <form action="rent_container">
+                    <label for="location">Lokasjon: </label>
+                    <select name="location" id="location">
+                        <option value="bergen">Bergen</option>
+                        <option value="oslo">Oslo</option>
+                        <!-- <option value="trondheim">Trondheim</option> -->
+                    </select>
+                </form>
+                <div class="rent_date">
+                    <div class="rent_date_start">
+                        <div class="rent_date_title">
+                            <div class="rent_icon"></div>
+                            <p>DATO<br>FOR<br>HENTING</p>
+                        </div>
+                        <input type="date" id="start" name="rent-start" value="">
+                        <select name="hour" id="starthour">
+                            <option value="00">00</option>
+                            <option value="01">01</option>
+                            <option value="02">02</option>
+                            <option value="03">03</option>
+                            <option value="04">04</option>
+                            <option value="05">05</option>
+                            <option value="06">06</option>
+                            <option value="07">07</option>
+                            <option value="08">08</option>
+                            <option value="09">09</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                            <option value="23">23</option>
+                        </select>
+                        <span class="colon"> : </span>
+                        <select name="minute" id="startminute">
+                            <option value="00">00</option>
+                            <option value="15">15</option>
+                            <option value="30">30</option>
+                            <option value="45">45</option>
+                        </select>
+                    </div>
+                    <div class="rent_date_end">
+                        <div class="rent_date_title">
+                            <div class="rent_icon"></div>
+                            <p>DATO<br>FOR<br>LEVERING</p>
+                        </div>
+                        <input type="date" id="end" name="rent-end" value="">
+                        <select name="hour" id="endhour">
+                            <option value="00">00</option>
+                            <option value="01">01</option>
+                            <option value="02">02</option>
+                            <option value="03">03</option>
+                            <option value="04">04</option>
+                            <option value="05">05</option>
+                            <option value="06">06</option>
+                            <option value="07">07</option>
+                            <option value="08">08</option>
+                            <option value="09">09</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                            <option value="23">23</option>
+                        </select>
+                        <span class="colon"> : </span>
+                        <select name="minute" id="endminute">
+                            <option value="00">00</option>
+                            <option value="15">15</option>
+                            <option value="30">30</option>
+                            <option value="45">45</option>
+                        </select>
+                    </div>
                 </div>
+                <p id="errorMsg"> </p>
+                <button id="check_availability" onclick="checkAvailability()">Sjekk tilgjengelighet</button>
+                <p class="available">Tilgjengelige: <span id="available">--</span></p>
+                <button id="rent_button" onclick="rentVehicle()">Lei på medlemskap</button>
             </div>
         </div>
     </div>
